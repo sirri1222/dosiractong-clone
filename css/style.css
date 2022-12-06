@@ -48,6 +48,7 @@ body {
   max-width: 1420px;
   margin: 0 auto;
 }
+
 /* 레이아웃 */
 .wrap {
   position: relative;
@@ -56,21 +57,25 @@ body {
 /* 상단 */
 .header {
   position: fixed;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 60px;
-
   left: 0;
   top: 0;
-  height: 100px;
-  width: 100%;
-  background: rgba(red, 255, 255, 0);
+
   display: flex;
-  z-index: 99999; 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 60px;
+
+  width: 100%;
+  height: 100px;
+  background: rgba(255, 255, 255, 0);
+  z-index: 9999;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
   transition: all 0.5s;
 }
-.logo{
+
+.logo {
   position: relative;
   width: 125px;
   height: 30px;
@@ -78,27 +83,97 @@ body {
   background-size: cover;
   transition: all 0.5s;
 }
-
-
-
-.nav{
-  display: block;
-  width: 400px;
-  height: 80px;
-  background: red;
-}
-
 /* 스크롤 적용 샘플 */
-.header:hover .logo{
-  background: url("../images/KakaoTalk_20221201_195036158.png")
-  no-repeat center;
+.header:hover {
+  height: 80px;
+  background: rgba(255, 255, 255, 1);
+}
+.header:hover .logo {
+  background: url("../images/KakaoTalk_20221201_195036158.png") no-repeat center;
   background-size: cover;
 }
-.header:hover {
-  background: rgb(121, 95, 95);
- 
-  height: 80px;
+.header:hover .gnb a {
+  color: #222 !important;
+  line-height: 80px !important;
 }
+.header:hover .gnb a span::after {
+  background: #222 !important;
+}
+
+.nav {
+  display: block;
+}
+.gnb {
+  display: flex;
+  margin-right: -34px;
+  transition: all 0.5s;
+}
+
+.gnb > li {
+}
+.gnb > li > a {
+  display: block;
+
+  /* 세로중앙 및 높이 한번 */
+  /* height: 100px; */
+  line-height: 100px;
+
+  font-size: 17px;
+  font-weight: 500;
+  color: #fff;
+  padding: 0 34px;
+  transition: line-height 0.5s, padding 0.5s;
+}
+.gnb > li > a > span {
+  position: relative;
+}
+.gnb > li > a > span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+
+  width: 0%;
+  opacity: 0;
+
+  height: 2px;
+  background: #fff;
+
+  transition: width 0.5s, opacity 0.5s;
+}
+.gnb > li > a:hover > span::after {
+  opacity: 1;
+  width: 100%;
+}
+
+@media screen and (max-width: 1280px) {
+  .header{padding: 30px;
+  }
+  .logo{
+    width: 150px;}
+  .gnb {
+    /* margin-right: -34px; */
+    margin-right: -26px;
+  }
+  .gnb > li > a {
+    /* padding: 0 34px; */
+    padding: 0 26px;
+  }
+
+  @media  screen and (max-width: 1024px) {
+
+    .logo{
+      width: 120px;}
+    .gnb{
+      display: none;
+    }
+    .header{
+      height: 70px;
+    }
+    
+  }
+}
+
 /* 비주얼 */
 .visual {
   position: relative;
@@ -108,7 +183,7 @@ body {
   background: url("../images/main_visual_3.jpg") no-repeat center;
   background-size: cover;
 }
-/*  서비스*/
+/* 서비스 */
 .service {
   position: relative;
   display: block;
@@ -118,13 +193,12 @@ body {
   position: relative;
   display: block;
 }
-/* 비지니스 */
+/* 비즈니스 */
 .business {
   position: relative;
   display: block;
 }
-/*  */
-/*  하단*/
+/* 하단 */
 .footer {
   position: relative;
   display: block;
