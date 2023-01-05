@@ -105,6 +105,7 @@ window.onload = function () {
     swVisualHtml = swVisualHtml + `<li>${i + 1}</li>`;
   }
   swSlidePgUl.innerHTML = swVisualHtml;
+// html 을 추가해준다
 
   // 페이지네이션 관련
   const swViusalPgLi = document.querySelectorAll(".sw-visual-pg-list > li");
@@ -116,9 +117,11 @@ window.onload = function () {
     //   crossFade: true,
     // },
     loop: true,
-    speed: 1000,
+    speed: 1500,
     autoplay: {
       delay: 2500,
+
+      // 사용자가 마우스 클릭 드래그로 이동하면 아래구문이 없으면 autoplay 가 해제 되므로 
       disableOnInteraction: false,
     },
     navigation: {
@@ -128,6 +131,10 @@ window.onload = function () {
   });
 
   // Swiper 가 최초 실행될 때
+  // 1번 li 의 흰색 라인이 늘어나는 모션을 실행 
+  // 우리가 적용하고자하는 처리를 하고자 
+  // swiper 의 api 를 참조해서 작성 
+  
   swViusalPgLi[0].classList.add("active");
 
   // Swiper 가 바뀔 때 마다 실행

@@ -64,22 +64,18 @@
     <script src="js/prefixfree.min.js"></script>
     <!-- css 초기화 -->
     <link rel="stylesheet" href="css/normalize.css" />
-    <!-- xe icon -->
-
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
-    />
-
-    !-- Swiper JS -->
+    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
     <!-- Link Swiper's CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
     />
-
+    <!-- xeicon -->
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js"></script>
   </head>
@@ -87,20 +83,21 @@
     <div class="wrap">
       <!-- 상단 -->
       <header class="header">
-        <a href="index.html" class="logo"> </a>
+        <a href="index.html" class="logo"></a>
+
         <nav class="nav">
           <ul class="gnb">
             <li>
-              <a href="#"><span>ABOUTUS</span></a>
+              <a href="#"><span>ABOUT US</span></a>
             </li>
             <li>
-              <a href="#"><span>재휴문의</span></a>
+              <a href="#"><span>제휴문의</span></a>
             </li>
             <li>
               <a href="#"><span>도시락멤버스</span></a>
             </li>
             <li>
-              <a href="#"><span>와이파이</span></a>
+              <a href="#"><span>와이파이도시락</span></a>
             </li>
             <li>
               <a href="#"><span>도시락유심</span></a>
@@ -110,11 +107,13 @@
             </li>
           </ul>
         </nav>
+
         <button class="mbt">
           <span></span>
           <span></span>
           <span></span>
         </button>
+
         <!-- 모바일 GNB -->
         <div class="nav-mb">
           <ul class="nav-mb-gnb">
@@ -123,30 +122,27 @@
             <li><a href="#">도시락멤버스</a></li>
             <li><a href="#">와이파이도시락</a></li>
             <li><a href="#">도시락유심</a></li>
-            <li><a href="#">도시락eSIM </a></li>
+            <li><a href="#">도시락eSIM</a></li>
           </ul>
         </div>
       </header>
       <!-- 비주얼 -->
-      <!-- 비주얼 -->
       <section class="visual">
         <!-- Swiper -->
         <div class="swiper sw-visual">
-
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="visual-box visual-bg-1">
                 <div class="inner">
                   <h2>도시락통</h2>
                   <p>도시락으로 다 통한다, 해외데이터는 도시락통</p>
-                  <a href="#">
+                  <a>
                     <span>자세히보기</span>
                     <i class="xi-long-arrow-right"></i>
                   </a>
                 </div>
               </div>
-            
-            </div>  
+            </div>
             <div class="swiper-slide">
               <div class="visual-box visual-bg-2">
                 <div class="inner">
@@ -154,15 +150,19 @@
                   <p>
                     여럿이 함께 쓰는 대용량 데이터, 장거리, 장기 할인은 기본
                   </p>
+                  <a href="#">
+                    <span>자세히보기</span>
+                    <i class="xi-long-arrow-right"></i>
+                  </a>
                 </div>
               </div>
             </div>
-
             <div class="swiper-slide">
               <div class="visual-box visual-bg-3">
                 <div class="inner">
                   <h2>도시락유심</h2>
                   <p>믿을 수 있는 현지 통신사의 선불유심, 유심도 도시락으로!</p>
+
                   <a href="#">
                     <span>자세히보기</span>
                     <i class="xi-long-arrow-right"></i>
@@ -178,6 +178,7 @@
                     요금제, 통신사 변경 없이 데이터 충전가능한 아이폰유저를 위한
                     가장 간편한 로밍
                   </p>
+
                   <a href="#">
                     <span>자세히보기</span>
                     <i class="xi-long-arrow-right"></i>
@@ -196,26 +197,102 @@
             <i class="xi-angle-right"></i>
           </button>
         </div>
-
+        <!-- sw-visual 페이지네이션 -->
         <div class="sw-visual-pg">
           <ul class="sw-visual-pg-list">
-            <li> 1 </li>
-            <li> 2 </li>
-            <li> 3 </li>
-            <li> 4 </li>
-            <!-- js출력 -->
+            <!-- js 출력 -->
           </ul>
         </div>
       </section>
       <!-- 서비스 -->
       <section class="service">
-        <div class="inner"></div>
+        <div class="inner">
+          <h2 class="service-title"><span>도시락통</span> 서비스 둘러보기</h2>
+          <div class="service-wrap">
+            <div class="service-box-1">
+              <a href="#">
+                <div class="service-bg service-bg-1"></div>
+                <div class="service-box-wrap">
+                  <h3 class="service-box-title">와이파이도시락</h3>
+                  <span class="service-box-desc">
+                    최대 5대 동시접속,
+                    <br class="no-br" />
+                    대용량 데이터로 해외에서도 빵빵!
+                  </span>
+                  <button class="service-box-bt">
+                    바로가기
+                    <i class="xi-angle-right-min"></i>
+                  </button>
+                </div>
+              </a>
+            </div>
+            <div class="service-box-2">
+              <a href="#">
+                <div class="service-bg service-bg-2"></div>
+                <div class="service-box-wrap">
+                  <h3 class="service-box-title">도시락유심</h3>
+                  <span class="service-box-desc">
+                    별도 단말기 소지 없이
+                    <br class="no-br" />
+                    유심 교체로 간편한 해외 데이터 사용
+                  </span>
+                  <button class="service-box-bt">
+                    바로가기
+                    <i class="xi-angle-right-min"></i>
+                  </button>
+                </div>
+              </a>
+            </div>
+            <div class="service-box-3">
+              <a href="#">
+                <div class="service-bg service-bg-3"></div>
+                <div class="service-box-wrap">
+                  <h3 class="service-box-title">도시락eSIM</h3>
+                  <span class="service-box-desc">
+                    해외 데이터 사용 손쉽게 구매부터
+                    <br class="no-br" />
+                    QR 설치까지 온라인으로 끝!
+                  </span>
+                  <button class="service-box-bt">
+                    바로가기
+                    <i class="xi-angle-right-min"></i>
+                  </button>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
       <!-- 소개 -->
+
       <section class="about">
-        <div class="inner"></div>
+        <div class="inner">
+          <div class="about-left">
+            <h2 class="about-title">
+              통신 서비스를 하나로 <br />
+              해외여행 갈 땐 <span>도시락통.</span>
+            </h2>
+          </div>
+          <div class="about-right">
+            <p class="about-txt-main">
+              혼자서 갑자기 훌쩍 떠나는 여행도 <br />
+              오랜만에 온 가족이 함께하는 여행도 <br />
+              <span>도시락 하나면 든든</span>해요.
+            </p>
+            <p>
+              국내외 어디서나 끊김없이 든든한 네트워크 제공하자는 모토를 가지고
+              2004년, <br />
+              (주)와이드모바일은 설립되었습니다.
+            </p>
+            <p>
+              더 나은 서비스 제공을 위해 지속적으로 연구, 개발하여 앞으로도
+              편리하고 즐거운 여행의 파트너가 되겠습니다.
+            </p>
+            <a href="#" class="about-link">ABOUT US <i class="ic xi-long-arrow-right"></i></a>
+          </div>
+        </div>
       </section>
-      <!-- 비지니스 -->
+      <!-- 비즈니스 -->
       <section class="business"></section>
       <!-- 하단 -->
       <footer class="footer">
