@@ -94,20 +94,24 @@ window.onload = function () {
     }
   });
   // 비주얼 슬라이드
-  // 슬라이드 개수 만큼 li 를 생성하기
+  // 1. 슬라이드(.swiper-slide) 개수 만큼 li 를 생성하기
   const swSlideCount = document.querySelectorAll(
     ".sw-visual .swiper-slide"
   ).length;
-  // li 태그 출력 장소 저장
+
+  // 2. li 태그 출력 장소(UL 태그) 저장
   const swSlidePgUl = document.querySelector(".sw-visual-pg-list");
+
+  // 3. li 에 html 로 작성할 글자를 생성한다.
   let swVisualHtml = ``;
   for (let i = 0; i < swSlideCount; i++) {
     swVisualHtml = swVisualHtml + `<li>${i + 1}</li>`;
   }
-  swSlidePgUl.innerHTML = swVisualHtml;
-// html 을 추가해준다
 
-  // 페이지네이션 관련
+  // 4. html 을 추가해 준다.
+  swSlidePgUl.innerHTML = swVisualHtml;
+
+  // 5. 페이지네이션 관련 (코딩으로 생성한 li 태그 저장)
   const swViusalPgLi = document.querySelectorAll(".sw-visual-pg-list > li");
 
   // console.log(swViusalPgLi);
@@ -117,11 +121,13 @@ window.onload = function () {
     //   crossFade: true,
     // },
     loop: true,
+    // 슬라이드의 모션 속도를 transition 맞춘다.
     speed: 1500,
     autoplay: {
       delay: 2500,
-
-      // 사용자가 마우스 클릭 드래그로 이동하면 아래구문이 없으면 autoplay 가 해제 되므로 
+      // 사용자가 마우스 클릭 드래그로 이동하면
+      // 아래 구문이 없으면 autoplya 가 해제되므로
+      // 이것을 방지해 주기위한 처리
       disableOnInteraction: false,
     },
     navigation: {
@@ -131,13 +137,13 @@ window.onload = function () {
   });
 
   // Swiper 가 최초 실행될 때
-  // 1번 li 의 흰색 라인이 늘어나는 모션을 실행 
-  // 우리가 적용하고자하는 처리를 하고자 
-  // swiper 의 api 를 참조해서 작성 
-  
+  // 1 번 li 의 흰색 라인이 늘어나는 모션을 실행
   swViusalPgLi[0].classList.add("active");
 
   // Swiper 가 바뀔 때 마다 실행
+  // 슬라이더가 바뀌는 상태를 찾아서
+  // 우리가 적용하고자 하는 처리를 하고자.
+  // Swiper 의  API 를 참조 해서 작성
   swiper.on("slideChange", function () {
     // realIndex   는 진짜 html 태그의 순서값
     // activeIndex 는 모션이 되는 요소의 순서값
@@ -148,7 +154,9 @@ window.onload = function () {
     // loop: false 라면
     //       realIndex 와 activeIndex 는 개수가 같다.
 
-    console.log("slide changed", swiper.realIndex, swiper.activeIndex);
+    // console.log("slide changed", swiper.realIndex, swiper.activeIndex);
+    // LI 태그를 모두 초기화 한다.
+    // 현재 모션이 일어나는 슬라이드 번호(realIndex) 클래스 적용
     swViusalPgLi.forEach((item, index) => {
       if (swiper.realIndex === index) {
         // 같은 순서는 모션을 하라
@@ -163,12 +171,11 @@ window.onload = function () {
   // li 태그를 클릭을 하면 처리하기
   swViusalPgLi.forEach((item, index) => {
     item.addEventListener("click", function () {
-      // slideTo를 이용하면 원하는 페이지로 보낼 수 있다.
-      // slideTo(index, speed, runCallbacks)
-      swiper.slideTo(index, 0, false);
+      // slideToLoop를 이용하면 원하는 페이지로 보낼 수 있다.
+      // slideToLoop(index, speed, runCallbacks)
+      swiper.slideToLoop(index, 500, false);
     });
   });
-
 
   // business slide
   const swBusiness = new Swiper(".sw-business", {
@@ -177,18 +184,54 @@ window.onload = function () {
     breakpoints: {
       640: {
         slidesPerView: 2,
-     
       },
       1024: {
         slidesPerView: 3,
-     
       },
     },
   });
 
-
+  // business-modal 기능
   const businessModal = document.querySelector(".business-modal");
-  businessModal.addEventListener("click", function(){
-    businessModal.style.display="none"
-  })
+  businessModal.addEventListener("click", function () {
+    businessModal.style.display = "none";
+  });
+
+  // 위로가기 스크롤바 구현
+  const gotop = document.querySelector(".gotop");
+  gotop.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  // footer 의 상단 위치 픽셀값 파악.
+  let footer = document.querySelector(".footer");
+  let footerY = footer.offsetTop;
+
+  function moveGotop() {
+    if (scy < 450) {
+      gotop.classList.remove("active");
+    } else {
+      gotop.classList.add("active");
+    }
+    // 세로 위치값 변경
+    if (footerY - 400 < scy) {
+      gotop.classList.add("active-footer");
+    } else {
+      gotop.classList.remove("active-footer");
+    }
+  }
+  moveGotop();
+
+  window.addEventListener("resize", function () {
+    footerY = footer.offsetTop;
+  });
+
+  window.addEventListener("scroll", function () {
+    // 스크롤 이동 픽셀값
+    scy = this.document.documentElement.scrollTop;
+    moveGotop();
+  });
 };
