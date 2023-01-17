@@ -76,10 +76,40 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
     />
+    <!-- waypoint -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"
+      integrity="sha512-fHXRw0CXruAoINU11+hgqYvY/PcsOWzmj0QmcSOtjlJcqITbPyypc8cYpidjPurWpCnlB8VKfRwx6PIpASCUkQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- aos 관련 코드 -->
+    <link href="js/aos/aos.css" rel="stylesheet" />
+    <script src="js/aos/aos.js"></script>
+
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js"></script>
   </head>
   <body>
+    <!-- 안내창 -->
+    <div class="modal-wrap">
+      <!-- Modal 내용 -->
+      <div class="modal-main">
+        <div class="modal-txt">
+          해당 사이트는 스터디용으로 제작되었으며, 모든 리소스의 저작권은
+          원저작자에게 있습니다. <br />
+          * 본 사이트는 Chrome 에 최적화되어 있습니다. <br />
+          * 해당 사이트와 관련한 문제가 있으면
+          <a href="mailto:aaa@aaa.net">여기</a>로 연락바랍니다
+        </div>
+        <!-- Modal 닫기 버튼 -->
+        <button class="modal-close">닫기</button>
+      </div>
+    </div>
+    <button class="gotop">
+      <i class="top__icon xi-long-arrow-up"></i>
+    </button>
     <div class="wrap">
       <!-- 상단 -->
       <header class="header">
@@ -205,11 +235,16 @@
         </div>
       </section>
       <!-- 서비스 -->
-      <section class="service">
+      <section
+        class="service"
+        data-aos="fade-up"
+        data-aos-delay="500"
+        data-aos-duration="500"
+      >
         <div class="inner">
           <h2 class="service-title"><span>도시락통</span> 서비스 둘러보기</h2>
           <div class="service-wrap">
-            <div class="service-box-1">
+            <div class="service-box-1" data-aos="fade-up" data-aos-delay="800">
               <a href="#">
                 <div class="service-bg service-bg-1"></div>
                 <div class="service-box-wrap">
@@ -226,7 +261,7 @@
                 </div>
               </a>
             </div>
-            <div class="service-box-2">
+            <div class="service-box-2" data-aos="fade-up" data-aos-delay="900">
               <a href="#">
                 <div class="service-bg service-bg-2"></div>
                 <div class="service-box-wrap">
@@ -243,7 +278,7 @@
                 </div>
               </a>
             </div>
-            <div class="service-box-3">
+            <div class="service-box-3" data-aos="fade-up" data-aos-delay="1000">
               <a href="#">
                 <div class="service-bg service-bg-3"></div>
                 <div class="service-box-wrap">
@@ -264,37 +299,51 @@
         </div>
       </section>
       <!-- 소개 -->
-      <section class="about">
+      <section
+        class="about"
+        data-aos="fade-up"
+        data-aos-delay="500"
+        data-aos-duration="500"
+      >
         <div class="inner">
           <div class="about-left">
-            <h2 class="about-title">
+            <h2 class="about-title" data-aos="fade-up" data-aos-delay="800">
               통신 서비스를 하나로 <br />
               해외여행 갈 땐 <span>도시락통.</span>
             </h2>
           </div>
           <div class="about-right">
-            <p class="about-txt-main">
+            <p class="about-txt-main" data-aos="fade-up" data-aos-delay="1200">
               혼자서 갑자기 훌쩍 떠나는 여행도 <br />
               오랜만에 온 가족이 함께하는 여행도 <br />
               <span>도시락 하나면 든든</span>해요.
             </p>
-            <p>
+            <p data-aos="fade-up" data-aos-delay="1300">
               국내외 어디서나 끊김없이 든든한 네트워크 제공하자는 모토를 가지고
               2004년, <br />
               (주)와이드모바일은 설립되었습니다.
             </p>
-            <p>
+            <p data-aos="fade-up" data-aos-delay="1500">
               더 나은 서비스 제공을 위해 지속적으로 연구, 개발하여 앞으로도
               편리하고 즐거운 여행의 파트너가 되겠습니다.
             </p>
-            <a href="#" class="about-link"
+            <a
+              href="#"
+              class="about-link"
+              data-aos="fade-up"
+              data-aos-delay="1800"
               >ABOUT US <i class="ic xi-long-arrow-right"></i
             ></a>
           </div>
         </div>
       </section>
       <!-- 비즈니스 -->
-      <section class="business">
+      <section
+        class="business"
+        data-aos="fade-up"
+        data-aos-delay="500"
+        data-aos-duration="500"
+      >
         <!-- swiper 직접 -->
         <div class="swiper sw-business">
           <div class="swiper-wrapper">
@@ -342,7 +391,7 @@
         </div>
       </section>
       <!-- 하단 -->
-      <footer class="footer">
+      <footer class="footer" id="footer">
         <div class="inner">
           <ul class="footer-list">
             <li>
@@ -364,9 +413,6 @@
           </ul>
         </div>
       </footer>
-      <button class="gotop">
-        <i class="top__icon xi-long-arrow-up"></i> 
-      </button>
     </div>
   </body>
 </html>

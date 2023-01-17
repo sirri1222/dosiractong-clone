@@ -1,4 +1,18 @@
 window.onload = function () {
+
+   // 모달창 기능
+   let modalWrap = document.querySelector(".modal-wrap");
+   let modalClose = document.querySelector(".modal-close");
+   modalClose.addEventListener("click", function () {
+     modalWrap.classList.add("fadeOut");
+     modalWrap.addEventListener("animationend", () => {
+       modalWrap.style.display = "none";
+     });
+   });
+ 
+// aos 세팅
+  AOS.init();
+
   // 상단 스크롤 기능
   const header = document.querySelector(".header");
   const mbt = document.querySelector(".mbt");
@@ -210,28 +224,29 @@ window.onload = function () {
   let footer = document.querySelector(".footer");
   let footerY = footer.offsetTop;
 
-  function moveGotop() {
-    if (scy < 450) {
-      gotop.classList.remove("active");
-    } else {
-      gotop.classList.add("active");
-    }
-    // 세로 위치값 변경
-    if (footerY - 400 < scy) {
-      gotop.classList.add("active-footer");
-    } else {
-      gotop.classList.remove("active-footer");
-    }
-  }
-  moveGotop();
-
-  window.addEventListener("resize", function () {
-    footerY = footer.offsetTop;
+  let waypoint_footer = new Waypoint({
+    element: document.querySelector(".footer"),
+    handler: function (direction) {
+      // console.log(direction);
+      if (direction === "down") {
+        gotop.classList.add("active-footer");
+      } else {
+        gotop.classList.remove("active-footer");
+      }
+    },
+    offset: "95%",
   });
 
-  window.addEventListener("scroll", function () {
-    // 스크롤 이동 픽셀값
-    scy = this.document.documentElement.scrollTop;
-    moveGotop();
+  let waypoint_service = new Waypoint({
+    element: document.querySelector(".service"),
+    handler: function (direction) {
+      // console.log(direction);
+      if (direction === "down") {
+        gotop.classList.add("active");
+      } else {
+        gotop.classList.remove("active");
+      }
+    },
+    offset: "80%",
   });
 };
